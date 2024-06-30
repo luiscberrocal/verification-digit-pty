@@ -35,3 +35,16 @@ class TestCalculateVerificationDigit:
     ])
     def test_natural(self, input_value, expected_output):
         assert calculate_verification_digit(input_value) == expected_output
+
+    @pytest.mark.parametrize("input_value, expected_output", [
+        ["155720753-2-2022", "39"],
+        ["2588017-1-831938", "20"],
+        ["1489806-1-645353", "68"],
+        ["1956569-1-732877", "00"],
+        ["797609-1-493865", "12"],
+        ["15565624-2-2017", "63"],
+    ])
+    def test_juridical_2(self, input_value, expected_output):
+        """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
+        # TODO is not raising error.    ["0-0-0", "19"],  # Error
+        assert calculate_verification_digit(input_value) == expected_output
