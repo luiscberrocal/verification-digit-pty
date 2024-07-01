@@ -118,3 +118,16 @@ class TestCalculateVerificationDigit:
     def test_natural_pi(self, input_value, expected_output):
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
+
+    @pytest.mark.parametrize("input_value, expected_output", [
+        ["N-0-0", "76"],
+        ["N-19-1821", "11"],
+        ["N-1-24", "89"],
+        ["N-1234-12345", "00"],
+        ["N-7824-53189", "73"],
+        ["N-9624-41065", "63"],
+        ["N-6521-53249", "72"],
+    ])
+    def test_natural_n(self, input_value, expected_output):
+        """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
+        assert calculate_verification_digit(input_value) == expected_output

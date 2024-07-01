@@ -40,6 +40,10 @@ def e_adapter(ruc: str) -> str:
     return ructb
 
 
+def n_adapter(ruc: str) -> str:
+    return e_adapter(ruc)
+
+
 def av_adapter(ruc: str) -> str:
     ruc_parts = ruc.split('-')
     letter = NaturalRUCLetter.from_part(ruc_parts[0])
