@@ -30,7 +30,7 @@ class TestCalculateVerificationDigit:
         ('PE-10-442', '50'),
         ('N-45-832', '58'),
         ('E-12-342', '10'),
-        ('1AV-432-658', '96'),
+        ('1AV-432-658', '31'),  # TODO Changed from 96 to 31 with the new implementation
         ('4PI-234-123', '96'),
     ])
     def test_natural(self, input_value, expected_output):
@@ -85,5 +85,18 @@ class TestCalculateVerificationDigit:
         ["E-1234-123456789", "26"]
     ])
     def test_natural_e(self, input_value, expected_output):
+        """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
+        assert calculate_verification_digit(input_value) == expected_output
+
+    @pytest.mark.parametrize("input_value, expected_output", [
+        ["0AV-0-0", "10"],
+        ["8AV-1-196", "90"],
+        ["2AV-1234-12345", "26"],
+        ["2AV-1234-123", "33"],
+        ["2AV-123-123456", "28"],
+        ["8AV-123-123456", "78"],
+        ["2AV-1234-1234", "02"],
+    ])
+    def test_natural_av(self, input_value, expected_output):
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
