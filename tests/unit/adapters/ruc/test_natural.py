@@ -1,4 +1,4 @@
-from verification_digit_pty.adapters.ruc.natural import e_adapter, e_n_adapter
+from verification_digit_pty.adapters.ruc.natural import e_adapter, e_adapter_old
 
 
 def test_natural_e_adapter():
@@ -7,9 +7,9 @@ def test_natural_e_adapter():
     print(e_adapter(cedula))
 
     expected_value = '000000005005001200342'
-    assert e_adapter(cedula) == expected_value
-    assert len(e_adapter(cedula)) == 21
+    assert e_adapter_old(cedula) == expected_value
+    assert len(e_adapter(cedula)) == 20
 
-    new_value = e_n_adapter(cedula)
+    new_value = e_adapter(cedula)
     # assert new_value == expected_value
     assert len(new_value) == 20
