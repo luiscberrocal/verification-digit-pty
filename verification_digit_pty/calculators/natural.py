@@ -1,5 +1,6 @@
 from typing import List
 
+from verification_digit_pty.adapters.ruc.natural import e_adapter
 from verification_digit_pty.exceptions import VerificationDigitError
 
 OLD_RUC_CROSS_REFERENCE = {
@@ -73,7 +74,7 @@ def calculate_verification_digit(ruc):
 
     # TODO: NT
     if ruc[0] == 'E':
-        ructb = e_adapter(rs)
+        ructb = e_adapter(ruc)
 
     elif rs[1] == 'NT':
         ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' * (2 - len(rs[0][:-2])) + rs[0][:-2] + '43' + '0' * (
@@ -121,14 +122,6 @@ def calculate_verification_digit(ruc):
     return ret
 
 
-def e_adapter(ruc_parts: List[str]) -> str:
-    try:
-        ructb = '0' * (4 - len(ruc_parts[1])) + '0000005' + '00' + '50' + '0' * (3 - len(ruc_parts[1])) + ruc_parts[
-            1] + '0' * (5 - len(ruc_parts[2])) + \
-                ruc_parts[2]
-    except IndexError:
-        raise VerificationDigitError('Invalid RUC') from None
-    return ructb
 
 
 if __name__ == "__main__":

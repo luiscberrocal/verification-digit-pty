@@ -65,3 +65,24 @@ class TestCalculateVerificationDigit:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         # TODO this is not working.
         assert calculate_verification_digit(input_value) == expected_output
+
+    @pytest.mark.parametrize("input_value, expected_output", [
+        ["E-0-0", "75"],
+        ["E-8-127702", "16"],
+        ["E-8-127703", "05"],
+        ["E-8-127702", "16"],
+        ["E-8-12770", "72"],
+        ["E-1234-12770", "98"],
+        ["E-1235-12770", "23"],
+        ["E-1-11", "63"],
+        ["E-7824-53189", "90"],
+        ["E-9624-41065", "80"],
+        ["E-6521-53249", "99"],
+        ["E-5056-27219", "16"],
+        ["E-123-1277012", "65"],
+        ["E-8-96407", "29"],
+        ["E-1234-123456789", "26"]
+    ])
+    def test_natural_e(self, input_value, expected_output):
+        """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
+        assert calculate_verification_digit(input_value) == expected_output
