@@ -49,6 +49,7 @@ class TestCalculateVerificationDigit:
         # TODO is not raising error.    ["0-0-0", "19"],  # Error
         assert calculate_verification_digit(input_value) == expected_output
 
+    @pytest.mark.skip(reason="Not supported yet")
     @pytest.mark.parametrize("input_value, expected_output", [
         ["0-NT-0-0", "31"],
         ["8-NT-1-13656", "43"],

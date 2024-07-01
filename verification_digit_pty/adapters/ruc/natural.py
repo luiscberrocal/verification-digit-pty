@@ -17,15 +17,15 @@ def e_adapter(ruc:str) -> str:
 
 
 @register_plugin
-def e_adapter_new(ruc: str) -> str:
+def e_n_adapter(ruc: str) -> str:
     ruc_parts = ruc.split('-')
     letter = NaturalRUCLetter.from_code(ruc_parts[0])
     folio_imagen = ruc_parts[1]
     asiento_ficha = ruc_parts[2]
-    folio_max_len = 4
+    max_folio_len = 4
     asiento_max_len = 9
 
-    if 0 < len(folio_imagen) < 4:
+    if 0 < len(folio_imagen) < max_folio_len:
         if len(asiento_ficha) == 6 and letter in (NaturalRUCLetter.E, NaturalRUCLetter.N):
             ructb = ("5" + "00" + letter.code.ljust(2, "0") +
                      folio_imagen.zfill(3) + asiento_ficha).zfill(20)
@@ -40,5 +40,4 @@ def e_adapter_new(ruc: str) -> str:
 
             ructb = ("5" + letter.code_validacion + letter.code +
                      folio_imagen.zfill(4) + asiento_ficha[:5].zfill(5)).zfill(20)
-
     return ructb
