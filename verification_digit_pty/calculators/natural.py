@@ -72,31 +72,18 @@ def calculate_verification_digit(ruc):
     # TODO: NT
     if ruc[0] == 'E':
         ructb = e_adapter(ruc)
-
     elif rs[1] == 'NT':
         ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' * (2 - len(rs[0][:-2])) + rs[0][:-2] + '43' + '0' * (
             3 - len(rs[2])) + rs[2] + '0' * (5 - len(rs[3])) + rs[3]
 
     elif rs[0][-2:] == 'AV':
         ructb = av_adapter(ruc)
-        # ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' * (2 - len(rs[0][:-2])) + rs[0][:-2] + '15' + '0' * (
-        #    3 - len(rs[1])) + rs[1] + '0' * (5 - len(rs[2])) + rs[2]
-
     elif rs[0][-2:] == 'PI':
         ructb = pi_adapter(ruc)
-        # ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' * (2 - len(rs[0][:-2])) + rs[0][:-2] + '79' + '0' * (
-        #     3 - len(rs[1])) + rs[1] + '0' * (5 - len(rs[2])) + rs[2]
-
     elif rs[0] == 'PE':
         ructb = pe_adapter(ruc)
-        # ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' + '75' + '0' * (3 - len(rs[1])) + rs[1] + '0' * (
-        #    5 - len(rs[2])) + rs[2]
-
     elif ruc[0] == 'N':
         ructb = n_adapter(ruc)
-        # ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' + '40' + '0' * (3 - len(rs[1])) + rs[1] + '0' * (
-        #     5 - len(rs[2])) + rs[2]
-
     elif 0 < len(rs[0]) <= 2:
         ructb = '0' * (4 - len(rs[1])) + '0000005' + '0' * (2 - len(rs[0])) + rs[0] + '00' + '0' * (3 - len(rs[1])) + \
                 rs[1] + '0' * (5 - len(rs[2])) + rs[2]

@@ -67,3 +67,27 @@ def pi_adapter(ruc: str) -> str:
 
 def pe_adapter(ruc: str) -> str:
     return e_adapter(ruc)
+
+
+def nt_adapter(ruc: str) -> str:
+    ruc = ruc.replace(' ', '').upper()
+
+    if ruc.count('-') != 3:
+        raise ValueError("Formato de RUC Natural NT incorrecto.")
+
+    ruc_parts = ruc.split("-")
+
+    if len(ruc_parts) != 4 or ruc_parts[1] != "NT":
+        raise ValueError("Formato de RUC Natural NT incorrecto.")
+
+    province = Province.from_code(ruc_parts[0])
+    folio_imagen = ruc_parts[2]
+    asiento_ficha = ruc_parts[3]
+    if len(asiento_ficha) <= 5:
+        ructb = "0".zfill(7) + "5" + province.code.zfill(2) + "43" + \
+                folio_imagen.zfill(3) + asiento_ficha.zfill(5)
+    else:
+        ructb = "0".zfill(6) + "5" + province.code.zfill(2) + "43" + \
+                folio_imagen.zfill(3) + asiento_ficha.zfill(6)
+    return ructb
+
