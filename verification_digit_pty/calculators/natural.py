@@ -1,4 +1,4 @@
-from verification_digit_pty.adapters.ruc.natural import e_adapter, av_adapter, pi_adapter, n_adapter
+from verification_digit_pty.adapters.ruc.natural import e_adapter, av_adapter, pi_adapter, n_adapter, pe_adapter
 
 OLD_RUC_CROSS_REFERENCE = {
     '00': '00',
@@ -88,8 +88,9 @@ def calculate_verification_digit(ruc):
         #     3 - len(rs[1])) + rs[1] + '0' * (5 - len(rs[2])) + rs[2]
 
     elif rs[0] == 'PE':
-        ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' + '75' + '0' * (3 - len(rs[1])) + rs[1] + '0' * (
-            5 - len(rs[2])) + rs[2]
+        ructb = pe_adapter(ruc)
+        # ructb = '0' * (4 - len(rs[1])) + '0000005' + '00' + '75' + '0' * (3 - len(rs[1])) + rs[1] + '0' * (
+        #    5 - len(rs[2])) + rs[2]
 
     elif ruc[0] == 'N':
         ructb = n_adapter(ruc)

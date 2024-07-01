@@ -131,3 +131,15 @@ class TestCalculateVerificationDigit:
     def test_natural_n(self, input_value, expected_output):
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
+
+    @pytest.mark.parametrize("input_value, expected_output", [
+        ["PE-0-0", "14"],
+        ["PE-1-19", "60"],
+        ["PE-123-12345", "42"],
+        ["PE-842-3681", "51"],
+        ["PE-712-5789", "82"],
+        ["PE-523-8262", "37"],
+    ])
+    def test_natural_pe(self, input_value, expected_output):
+        """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
+        assert calculate_verification_digit(input_value) == expected_output

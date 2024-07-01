@@ -63,3 +63,7 @@ def av_adapter(ruc: str) -> str:
 
 def pi_adapter(ruc: str) -> str:
     return av_adapter(ruc)
+
+
+def pe_adapter(ruc: str) -> str:
+    return e_adapter(ruc)
