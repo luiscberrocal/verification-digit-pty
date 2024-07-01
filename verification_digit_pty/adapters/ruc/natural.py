@@ -5,7 +5,7 @@ from verification_digit_pty.exceptions import VerificationDigitError
 from verification_digit_pty.plugins import register_plugin
 
 
-def e_adapter(ruc:str) -> str:
+def e_adapter_old(ruc:str) -> str:
     ruc_parts = ruc.split('-')
     try:
         ructb = '0' * (4 - len(ruc_parts[1])) + '0000005' + '00' + '50' + '0' * (3 - len(ruc_parts[1])) + ruc_parts[
@@ -17,7 +17,7 @@ def e_adapter(ruc:str) -> str:
 
 
 @register_plugin
-def e_n_adapter(ruc: str) -> str:
+def e_adapter(ruc: str) -> str:
     ruc_parts = ruc.split('-')
     letter = NaturalRUCLetter.from_code(ruc_parts[0])
     folio_imagen = ruc_parts[1]
@@ -34,10 +34,9 @@ def e_n_adapter(ruc: str) -> str:
                      folio_imagen.zfill(3) + asiento_ficha[:5].zfill(5)).zfill(20)
     else:
         if len(asiento_ficha) == 6 and letter in (NaturalRUCLetter.E, NaturalRUCLetter.N):
-            ructb = ("5" + letter.code_validacion + letter.code.ljust(2, "0") +
+            ructb = ("5" + letter.validation_code + letter.code.ljust(2, "0") +
                      folio_imagen.zfill(4) + asiento_ficha).zfill(20)
         else:
-
-            ructb = ("5" + letter.code_validacion + letter.code +
+            ructb = ("5" + letter.validation_code + letter.code +
                      folio_imagen.zfill(4) + asiento_ficha[:5].zfill(5)).zfill(20)
     return ructb
