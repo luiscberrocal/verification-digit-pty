@@ -690,6 +690,19 @@ pyyaml = "*"
 extra = ["pygments (>=2.12)"]
 
 [[package]]
+name = "pyplugs"
+version = "0.4.0"
+description = "PyPlugs, decorator based plug-in architecture for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+dev = ["black", "bumpversion", "flake8", "flit", "interrogate", "isort", "mypy", "pre-commit"]
+doc = ["mkdocs"]
+test = ["black", "flake8", "interrogate", "isort", "mypy", "pytest", "pytest-cov", "tox"]
+
+[[package]]
 name = "pyproject-api"
 version = "1.7.1"
 description = "API to interact with the python pyproject.toml based projects"
@@ -1033,7 +1046,7 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "2351612b220c946f5e66bc48b6afb898ba2a54d362114173e0518acac62ddb13"
+content-hash = "cec155f4fa1fe8a0b461a8fe17bcebb4dbc8edfcd1917399d4385692b72bf0e2"
 
 [metadata.files]
 annotated-types = [
@@ -1629,6 +1642,10 @@ pygments = [
 pymdown-extensions = [
     {file = "pymdown_extensions-10.8.1-py3-none-any.whl", hash = "sha256:f938326115884f48c6059c67377c46cf631c733ef3629b6eed1349989d1b30cb"},
     {file = "pymdown_extensions-10.8.1.tar.gz", hash = "sha256:3ab1db5c9e21728dabf75192d71471f8e50f216627e9a1fa9535ecb0231b9940"},
+]
+pyplugs = [
+    {file = "pyplugs-0.4.0-py3-none-any.whl", hash = "sha256:52746d78490566b9a8f838c26a740195ae5fb3ffcc10adbda114ba76356ae4c3"},
+    {file = "pyplugs-0.4.0.tar.gz", hash = "sha256:4380a190c51952141b7f80188ac3b175f0ac1b1e3ecbf9d346ca1f1755956f85"},
 ]
 pyproject-api = [
     {file = "pyproject_api-1.7.1-py3-none-any.whl", hash = "sha256:2dc1654062c2b27733d8fd4cdda672b22fe8741ef1dde8e3a998a9547b071eeb"},
