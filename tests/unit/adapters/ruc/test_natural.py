@@ -1,6 +1,6 @@
 import pytest
 
-from verification_digit_pty.adapters.ruc.natural import e_adapter, e_adapter_old
+from verification_digit_pty.adapters.ruc.natural import e_adapter, nt_adapter
 
 
 @pytest.mark.parametrize("input_value, expected_output", [
@@ -22,6 +22,18 @@ from verification_digit_pty.adapters.ruc.natural import e_adapter, e_adapter_old
 ])
 def test_natural_e_adapter(input_value, expected_output):
     """Error in calculating the rud format e_adapter returns 21 digits instead of 20"""
-
     new_value = e_adapter(input_value)
+    assert new_value == expected_output
+
+
+@pytest.mark.parametrize("input_value, expected_output", [
+    ("0-NT-0-0", "00000005004300000000"),
+    ("8-NT-1-24", "00000005084300100024"),
+    ("3-NT-465-45624", "00000005034346545624"),
+    ("9-NT-2-421578", "00000050943002421578"),
+    ("6-NT-227-888555", "00000050643227888555"),
+    ("12-NT-45-2154", "00000005124304502154"),
+])
+def test_nt_adapter(input_value, expected_output):
+    new_value = nt_adapter(input_value)
     assert new_value == expected_output
