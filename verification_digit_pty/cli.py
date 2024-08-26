@@ -4,7 +4,7 @@ import click
 
 
 @click.command()
-def main():
+def main() -> None:
     """Main entrypoint."""
     click.echo("verification-digit-pty")
     click.echo("=" * len("verification-digit-pty"))
