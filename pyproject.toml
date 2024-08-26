@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "verification-digit-pty"
-version = "0.2.0"
+version = "0.2.1"
 homepage = "https://github.com/luiscberrocal/verification-digit-pty"
 description = "Library to calculate the verification digit from RUC and cedulas in Panama.."
 authors = ["Luis C. Berrocal <luis.berrocal.1942@gmail.com>"]
