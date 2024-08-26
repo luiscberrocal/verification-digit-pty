@@ -24,3 +24,9 @@ clean:
 	rm -rf *.egg-info
 	rm -rf .tox dist site
 	rm -rf coverage.xml .coverage
+
+build:
+	python -m build
+
+publish: build
+	python -m twine upload dist/*
