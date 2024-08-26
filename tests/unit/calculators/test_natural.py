@@ -4,7 +4,7 @@ from verification_digit_pty.calculators.natural import calculate_verification_di
 
 
 class TestCalculateVerificationDigit:
-    def testt_errors(self):
+    def testt_errors(self) -> None:
         assert calculate_verification_digit("") == ""
         assert calculate_verification_digit("E") == ""
 
@@ -24,7 +24,7 @@ class TestCalculateVerificationDigit:
             ("1075137-1-553125", "18"),
         ],
     )
-    def test_juridical(self, input_value, expected_output):
+    def test_juridical(self, input_value, expected_output) -> None:
         assert calculate_verification_digit(input_value) == expected_output
 
     @pytest.mark.parametrize(
@@ -38,7 +38,7 @@ class TestCalculateVerificationDigit:
             ("4PI-234-123", "31"),  # TODO Changed from 96 to 31 with the new implementation
         ],
     )
-    def test_natural(self, input_value, expected_output):
+    def test_natural(self, input_value, expected_output) -> None:
         assert calculate_verification_digit(input_value) == expected_output
 
     @pytest.mark.parametrize(
@@ -52,7 +52,7 @@ class TestCalculateVerificationDigit:
             ["15565624-2-2017", "63"],
         ],
     )
-    def test_juridical_old(self, input_value, expected_output):
+    def test_juridical_old(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         # TODO is not raising error.    ["0-0-0", "19"],  # Error
         assert calculate_verification_digit(input_value) == expected_output
@@ -73,7 +73,7 @@ class TestCalculateVerificationDigit:
             ["8-NT-1-123456", "52"],
         ],
     )
-    def test_juridical_nt(self, input_value, expected_output):
+    def test_juridical_nt(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         # TODO this is not working.
         assert calculate_verification_digit(input_value) == expected_output
@@ -98,7 +98,7 @@ class TestCalculateVerificationDigit:
             ["E-1234-123456789", "26"],
         ],
     )
-    def test_natural_e(self, input_value, expected_output):
+    def test_natural_e(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
 
@@ -114,7 +114,7 @@ class TestCalculateVerificationDigit:
             ["2AV-1234-1234", "02"],
         ],
     )
-    def test_natural_av(self, input_value, expected_output):
+    def test_natural_av(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
 
@@ -135,7 +135,7 @@ class TestCalculateVerificationDigit:
             ["8PI-1234-12345", "26"],
         ],
     )
-    def test_natural_pi(self, input_value, expected_output):
+    def test_natural_pi(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
 
@@ -151,7 +151,7 @@ class TestCalculateVerificationDigit:
             ["N-6521-53249", "72"],
         ],
     )
-    def test_natural_n(self, input_value, expected_output):
+    def test_natural_n(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output
 
@@ -166,6 +166,6 @@ class TestCalculateVerificationDigit:
             ["PE-523-8262", "37"],
         ],
     )
-    def test_natural_pe(self, input_value, expected_output):
+    def test_natural_pe(self, input_value, expected_output) -> None:
         """Tests for `verification_digit_pty` package from Panama-RUC-DV-Calculator."""
         assert calculate_verification_digit(input_value) == expected_output

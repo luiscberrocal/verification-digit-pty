@@ -106,9 +106,8 @@ def calculate_verification_digit(ruc):
     # print dv1
     dv2 = _digitDV(sw, ructb + chr(48 + dv1))
 
-    ret = chr(48 + dv1) + chr(48 + dv2)
+    return chr(48 + dv1) + chr(48 + dv2)
     # print ret
-    return ret
 
 
 if __name__ == "__main__":
@@ -122,4 +121,3 @@ if __name__ == "__main__":
     dv = calculate_verification_digit(args.ruc)
     if len(dv) == 0:
         sys.exit(1)
-    print(dv)

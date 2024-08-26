@@ -20,7 +20,7 @@ from verification_digit_pty.handlers import _digitDV, calculate_vd
         (False, "000000051243045021541", "7"),
     ],
 )
-def test_calculate_vd_nt(is_old, input_value, expected_output):
+def test_calculate_vd_nt(is_old, input_value, expected_output) -> None:
     assert calculate_vd(is_old, input_value) == expected_output
 
 
@@ -41,5 +41,5 @@ def test_calculate_vd_nt(is_old, input_value, expected_output):
         (False, "000000051243045021541", 7),
     ],
 )
-def test__digitDV_nt(is_old, input_value, expected_output):
+def test__digitDV_nt(is_old, input_value, expected_output) -> None:
     assert _digitDV(is_old, input_value) == expected_output

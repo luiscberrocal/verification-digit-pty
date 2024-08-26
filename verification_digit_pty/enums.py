@@ -10,7 +10,7 @@ class NaturalRUCLetter(Enum):
     AV = ("AV", "15", "9595", "Before the system")
     PI = ("PI", "79", "9595", "Indigenous People")
 
-    def __init__(self, letter, code, validation_code, name):
+    def __init__(self, letter, code, validation_code, name) -> None:
         self.letter = letter
         self.code = code
         self.validation_code = validation_code
@@ -49,7 +49,7 @@ class Province(Enum):
     NGABE_BUGLE = ("12", "Ngabe Bugle")
     PANAMA_OESTE = ("13", "Panama Oeste")
 
-    def __init__(self, code, description):
+    def __init__(self, code, description) -> None:
         self.code = code
         self.province_name = description
 

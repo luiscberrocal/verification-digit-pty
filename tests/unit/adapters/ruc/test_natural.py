@@ -23,8 +23,8 @@ from verification_digit_pty.adapters.ruc.natural import e_adapter, nt_adapter
         ["E-1234-123456789", "00000005665123412345"],
     ],
 )
-def test_natural_e_adapter(input_value, expected_output):
-    """Error in calculating the rud format e_adapter returns 21 digits instead of 20"""
+def test_natural_e_adapter(input_value, expected_output) -> None:
+    """Error in calculating the rud format e_adapter returns 21 digits instead of 20."""
     new_value = e_adapter(input_value)
     assert new_value == expected_output
 
@@ -40,6 +40,6 @@ def test_natural_e_adapter(input_value, expected_output):
         ("12-NT-45-2154", "00000005124304502154"),
     ],
 )
-def test_nt_adapter(input_value, expected_output):
+def test_nt_adapter(input_value, expected_output) -> None:
     new_value = nt_adapter(input_value)
     assert new_value == expected_output

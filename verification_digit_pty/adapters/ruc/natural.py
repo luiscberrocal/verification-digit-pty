@@ -28,7 +28,6 @@ def e_adapter(ruc: str) -> str:
     folio_imagen = ruc_parts[1]
     asiento_ficha = ruc_parts[2]
     max_folio_len = 4
-    asiento_max_len = 9
 
     if 0 < len(folio_imagen) < max_folio_len:
         if len(asiento_ficha) == 6 and letter in (NaturalRUCLetter.E, NaturalRUCLetter.N):
@@ -58,7 +57,6 @@ def av_adapter(ruc: str) -> str:
     folio_imagen = ruc_parts[1]
     asiento_ficha = ruc_parts[2]
     max_folio_len = 4
-    asiento_max_len = 9
     province = Province.from_part(ruc_parts[0])
     if 0 < len(folio_imagen) < max_folio_len:
         ructb = ("5" + province.code.zfill(2) + letter.code + folio_imagen.zfill(3) + asiento_ficha[:5].zfill(5)).zfill(
