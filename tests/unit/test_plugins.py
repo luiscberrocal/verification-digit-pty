@@ -6,7 +6,7 @@ def test_plugin_register_plugin():
 
     @register_plugin
     def f():
-        return 'f'
+        return "f"
 
-    assert f() == 'f'
+    assert f() == "f"
     assert "tests.unit.test_plugins.f" in _PLUGINS

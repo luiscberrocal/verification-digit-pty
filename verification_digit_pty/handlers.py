@@ -23,8 +23,9 @@ def _digitDV(sw, ructb):
             sw = False
             j -= 1
 
-        nsuma += j * (ord(c) - ord('0'))
+        nsuma += j * (ord(c) - ord("0"))
         j += 1
     r = nsuma % 11
-    if r > 1:  return 11 - r
+    if r > 1:
+        return 11 - r
     return 0

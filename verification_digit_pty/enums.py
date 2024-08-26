@@ -25,7 +25,7 @@ class NaturalRUCLetter(Enum):
 
     @classmethod
     def from_part(cls, part):
-        regex = re.compile(r'(\d+)?(AV|PI)')
+        regex = re.compile(r"(\d+)?(AV|PI)")
         match = regex.match(part)
         if match:
             return cls.from_code(match.group(2))
@@ -62,7 +62,7 @@ class Province(Enum):
 
     @classmethod
     def from_part(cls, part: str):
-        regex = re.compile(r'(\d+)?(AV|PI)')
+        regex = re.compile(r"(\d+)?(AV|PI)")
         match = regex.match(part)
         if match:
             return cls.from_code(match.group(1))
