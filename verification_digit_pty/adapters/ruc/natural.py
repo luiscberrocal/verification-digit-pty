@@ -37,15 +37,14 @@ def e_adapter(ruc: str) -> str:
             ructb = ("5" + "00" + letter.code.ljust(2, "0") + folio_imagen.zfill(3) + asiento_ficha[:5].zfill(5)).zfill(
                 20
             )
+    elif len(asiento_ficha) == 6 and letter in (NaturalRUCLetter.E, NaturalRUCLetter.N):
+        ructb = (
+            "5" + letter.validation_code + letter.code.ljust(2, "0") + folio_imagen.zfill(4) + asiento_ficha
+        ).zfill(20)
     else:
-        if len(asiento_ficha) == 6 and letter in (NaturalRUCLetter.E, NaturalRUCLetter.N):
-            ructb = (
-                "5" + letter.validation_code + letter.code.ljust(2, "0") + folio_imagen.zfill(4) + asiento_ficha
-            ).zfill(20)
-        else:
-            ructb = (
-                "5" + letter.validation_code + letter.code + folio_imagen.zfill(4) + asiento_ficha[:5].zfill(5)
-            ).zfill(20)
+        ructb = (
+            "5" + letter.validation_code + letter.code + folio_imagen.zfill(4) + asiento_ficha[:5].zfill(5)
+        ).zfill(20)
     return ructb
 
 

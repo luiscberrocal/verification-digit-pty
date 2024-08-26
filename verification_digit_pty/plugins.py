@@ -6,7 +6,7 @@ _PLUGINS = {}
 
 def get_plugin(plugin: str) -> Callable[..., Any]:
     plugins_found = []
-    for key in _PLUGINS.keys():
+    for key in _PLUGINS:
         if plugin in key:
             plugins_found.append(_PLUGINS[key])
     if len(plugins_found) == 1:

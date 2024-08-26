@@ -1,10 +1,10 @@
 from verification_digit_pty.adapters.ruc.natural import (
-    e_adapter,
     av_adapter,
-    pi_adapter,
+    e_adapter,
     n_adapter,
-    pe_adapter,
     nt_adapter,
+    pe_adapter,
+    pi_adapter,
 )
 from verification_digit_pty.handlers import _digitDV
 
@@ -112,8 +112,8 @@ def calculate_verification_digit(ruc):
 
 
 if __name__ == "__main__":
-    import sys
     import argparse
+    import sys
 
     parser = argparse.ArgumentParser(description="DV calculator")
     parser.add_argument("ruc", type=str)

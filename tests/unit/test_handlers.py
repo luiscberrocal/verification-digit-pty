@@ -1,6 +1,6 @@
 import pytest
 
-from verification_digit_pty.handlers import calculate_vd, _digitDV
+from verification_digit_pty.handlers import _digitDV, calculate_vd
 
 
 @pytest.mark.parametrize(
