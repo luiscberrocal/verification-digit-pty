@@ -53,7 +53,10 @@ OLD_RUC_CROSS_REFERENCE = {
 }
 
 
-def calculate_verification_digit(ruc):
+def calculate_verification_digit(ruc: str) -> str:
+    if not ruc:
+        return ""
+
     rs = ruc.split("-")
     if (len(rs) == 4 and rs[1] != "NT") or len(rs) < 3 or len(rs) > 5:
         return ""
