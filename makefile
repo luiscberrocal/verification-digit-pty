@@ -1,14 +1,7 @@
 sources = verification_digit_pty
 
 .PHONY: test format lint unittest coverage pre-commit clean
-test: format lint unittest
-
-format:
-	isort $(sources) tests
-	black $(sources) tests
-
-lint:
-	flake8 $(sources) tests
+test: unittest
 
 unittest:
 	pytest
@@ -25,8 +18,8 @@ clean:
 	rm -rf .tox dist site
 	rm -rf coverage.xml .coverage
 
-build::
-	python -m build
+dist: clean
+	poetry build
 
-publish:  build
+release: dist ## package and upload a release
 	twine upload dist/*
